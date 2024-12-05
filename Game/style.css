@@ -1,0 +1,27 @@
+body{
+    align-items: center;
+}
+
+#player{
+    background-color: gold;
+    width: 60px;
+    height:60px
+}
+
+#box{
+    width: 500px;
+    height: 600px;
+    background-color: forestgreen;
+    position: absolute;
+    align-items: center;
+}
+
+#score{
+    align-items: center;
+}
+#megacube{
+    background-color: aqua;
+}
+#restart{
+    background-color: blue;
+}
