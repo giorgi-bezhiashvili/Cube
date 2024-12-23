@@ -5,14 +5,15 @@ body{
 #player{
     background-color: gold;
     width: 60px;
-    height:60px
+    height:60px;
+    cursor: grab;
 }
 
 #box{
     width: 500px;
     height: 600px;
     background-color: forestgreen;
-
+    position: absolute;
     align-items: center;
 }
 
@@ -25,6 +26,11 @@ body{
     font-size: 25px;
     margin-top: 25px;
     border-radius: 5px;
+}
+#megacube{
+    background-color: aqua;
+}
+
 }
 #megacube{
     background-color: aqua;
