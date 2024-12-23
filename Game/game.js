@@ -58,7 +58,7 @@ player.addEventListener("click", function () {
             score += 10;
             idk.innerText = "Score: " + score;
 
-            if (this.click == true) {
+            if (this.click = true) {
                 megacube.style.width = "0px";
                 megacube.style.height = "0px";
             }
@@ -69,6 +69,7 @@ player.addEventListener("click", function () {
 restart.addEventListener("click", function () {
     scores.push(score);
 
+    // Update maxScore if needed
     maxScore = Math.max(maxScore, score);
     localStorage.setItem("maxScore", maxScore);
 
