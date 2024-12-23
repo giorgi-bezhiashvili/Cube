@@ -12,16 +12,20 @@ body{
     width: 500px;
     height: 600px;
     background-color: forestgreen;
-    position: absolute;
+
     align-items: center;
 }
 
 #score{
     align-items: center;
 }
+#restart{
+    background-color: blueviolet;
+    color : #ffffff;
+    font-size: 25px;
+    margin-top: 25px;
+    border-radius: 5px;
+}
 #megacube{
     background-color: aqua;
-}
-#restart{
-    background-color: blue;
 }
