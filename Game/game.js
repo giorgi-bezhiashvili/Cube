@@ -10,25 +10,9 @@ let maxScoretxt = document.getElementById("maxscore");
 
 maxScoretxt.innerText = `Your max score is ${maxScore}`;
 
-var interval = setInterval(() => {
-    realtimer--;
-    timer.innerText = realtimer;
+let interval; // Declare interval variable globally
 
-    if (realtimer < 1) {
-        swal("Time is over! Your score: " + score);
-        clearInterval(interval);
-        scores.push(score);
-
-        // Update maxScore if needed
-        maxScore = Math.max(maxScore, score);
-        localStorage.setItem("maxScore", maxScore);
-
-        idk.innerText = `Score: ${score}`;
-        maxScoretxt.innerText = `Your max score is ${maxScore}`;
-    }
-}, 1000);
-
-player.addEventListener("click", function () {
+function handlePlayerClick() {
     timer.innerText = realtimer;
     score++;
     idk.innerText = "Score: " + score;
@@ -51,8 +35,8 @@ player.addEventListener("click", function () {
         megacube.style.width = randomsize + "px";
         megacube.style.height = randomsize + "px";
 
-        megacube.style.marginTop = Math.random() * 400 + "px";
-        megacube.style.marginLeft = Math.random() * 400 + "px";
+        megacube.style.marginTop = Math.random() * 200 + "px";
+        megacube.style.marginLeft = Math.random() * 200 + "px";
 
         megacube.addEventListener("click", function () {
             score += 10;
@@ -64,20 +48,50 @@ player.addEventListener("click", function () {
             }
         });
     }
-});
+}
 
-restart.addEventListener("click", function () {
-    scores.push(score);
-
-    // Update maxScore if needed
-    maxScore = Math.max(maxScore, score);
-    localStorage.setItem("maxScore", maxScore);
-
+function startGame() {
+    // Reset variables
     realtimer = 60;
     score = 0;
 
     idk.innerText = `Score: ${score}`;
-    maxScoretxt.innerText = `Your max score is ${maxScore}`;
+    timer.innerText = realtimer;
+
+    // Add click listener
+    player.addEventListener("click", handlePlayerClick);
+
+    // Start the timer
+    interval = setInterval(() => {
+        realtimer--;
+        timer.innerText = realtimer;
+
+        if (realtimer < 1) {
+            swal("Time is over! Your score: " + score);
+            clearInterval(interval);
+            scores.push(score);
+
+            // Update maxScore if needed
+            maxScore = Math.max(maxScore, score);
+            localStorage.setItem("maxScore", maxScore);
+
+            idk.innerText = `Score: ${score}`;
+            maxScoretxt.innerText = `Your max score is ${maxScore}`;
+
+            // Remove the event listener
+            player.removeEventListener("click", handlePlayerClick);
+        }
+    }, 1000);
+}
+
+// Start the initial game
+startGame();
+
+// Restart button logic
+restart.addEventListener("click", function () {
+    clearInterval(interval); // Stop the current game timer
+    player.removeEventListener("click", handlePlayerClick); // Remove any existing listeners
+    startGame(); // Restart the game logic
 });
 
                 }
