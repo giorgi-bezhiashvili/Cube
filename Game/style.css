@@ -24,13 +24,8 @@ body{
     background-color: blueviolet;
     color : #ffffff;
     font-size: 25px;
-    margin-top: 25px;
     border-radius: 5px;
-}
-#megacube{
-    background-color: aqua;
-}
-
+    margin-left: 525px;
 }
 #megacube{
     background-color: aqua;
