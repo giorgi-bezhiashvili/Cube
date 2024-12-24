@@ -93,8 +93,3 @@ restart.addEventListener("click", function () {
     player.removeEventListener("click", handlePlayerClick); // Remove any existing listeners
     startGame(); // Restart the game logic
 });
-
-                }
-                })
-        }
-        })
